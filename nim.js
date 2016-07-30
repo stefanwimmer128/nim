@@ -109,7 +109,7 @@ $(() =>
                     card = false;
                     took++;
                 }
-                
+            
             return card;
         });
         
@@ -125,7 +125,7 @@ $(() =>
         whoTurn("You");
     };
     
-    const hasWon = (who) =>
+    const hasWon = (who = null) =>
     {
         const won = rows.every(row =>
             row.every(card =>
@@ -133,7 +133,7 @@ $(() =>
             )
         );
         
-        if (won && typeof who !== "undefined")
+        if (won && who !== null)
         {
             $("#win").text(who + " won!");
             
