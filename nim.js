@@ -22,7 +22,7 @@
 
 $(() =>
 {
-    const _rows = [ 7, 5, 3, 1 ];
+    const _rows = [ 7, 6, 5, 4, 3, 2, 1 ];
     
     const createRows = (rows) =>
         rows.map(row =>
