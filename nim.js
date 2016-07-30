@@ -15,7 +15,7 @@
  */
 
 /**
- * Some created JavaScript file
+ * NIM
  * @author Stefan Wimmer <stefanwimmer128@gmail.com>
  * @date 29.07.16
  */
