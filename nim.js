@@ -115,6 +115,8 @@ $(() =>
     {
         rows = createRows(_rows);
         
+        $("#win").empty();
+        
         update();
     };
     
