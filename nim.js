@@ -22,20 +22,17 @@
 
 $(() =>
 {
-    const rows = [
-        [
-            true, true, true, true, true, true, true
-        ],
-        [
-            true, true, true, true, true
-        ],
-        [
-            true, true, true
-        ],
-        [
-            true
-        ]
-    ];
+    const rows = (rows =>
+        rows.map(row =>
+        {
+            const cards = [];
+            
+            for (let i = 0; i < row; i++)
+                cards.push(true);
+            
+            return cards;
+        })
+    )([ 7, 5, 3, 1 ]);
     
     const update = () =>
     {
@@ -71,7 +68,7 @@ $(() =>
         if (cards.length < 1)
             return aiTurn();
         
-        const takes = Math.floor(Math.random() * cards.length) + 1;
+        const takes = Math.ceil(Math.random() * cards.length);
         
         let took = 0;
         
