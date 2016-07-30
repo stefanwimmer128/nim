@@ -22,7 +22,9 @@
 
 $(() =>
 {
-    const rows = (rows =>
+    const _rows = [ 7, 5, 3, 1 ];
+    
+    const createRows = (rows) =>
         rows.map(row =>
         {
             const cards = [];
@@ -31,8 +33,9 @@ $(() =>
                 cards.push(true);
             
             return cards;
-        })
-    )([ 7, 5, 3, 1 ]);
+        });
+    
+    let rows = createRows(_rows);
     
     const update = () =>
     {
@@ -108,7 +111,16 @@ $(() =>
         return won;
     };
     
+    const restart = () =>
+    {
+        rows = createRows(_rows);
+        
+        update();
+    };
+    
     $("#aiTurn").click(aiTurn);
+    
+    $("#restart").click(restart);
     
     update();
 });
