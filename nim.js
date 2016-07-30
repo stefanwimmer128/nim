@@ -37,6 +37,12 @@ $(() =>
     
     let rows = createRows(_rows);
     
+    let player = "You";
+    
+    let player_row = -1;
+    
+    let player_took = 0;
+    
     const update = () =>
     {
         $("#nim").empty();
@@ -55,11 +61,19 @@ $(() =>
                         .last()
                         .click(() =>
                         {
+                            if (player_row >= 0)
+                                if (player_row !== ir)
+                                    return ;
+                            
+                            player_row = ir;
+                            
                             rows[ir][ic] = false;
+                            
+                            player_took++;
                             
                             update();
                             
-                            hasWon("You");
+                            hasWon(player);
                         });
             });
         });
@@ -69,6 +83,13 @@ $(() =>
     {
         if (hasWon())
             return ;
+        
+        if (player_took === 0)
+            return;
+        
+        $("#nextTurn").hide();
+        
+        whoTurn("AI");
         
         const row = Math.floor(Math.random() * rows.length);
         const cards = rows[row].filter(card => card);
@@ -92,9 +113,16 @@ $(() =>
             return card;
         });
         
+        player_row = -1;
+        
+        player_took = 0;
+        
         update();
         
-        hasWon("AI");
+        if (hasWon("AI"))
+            return ;
+        
+        whoTurn("You");
     };
     
     const hasWon = (who) =>
@@ -106,7 +134,11 @@ $(() =>
         );
         
         if (won && typeof who !== "undefined")
+        {
             $("#win").text(who + " won!");
+            
+            $("#whoTurn").empty();
+        }
         
         return won;
     };
@@ -117,12 +149,47 @@ $(() =>
         
         $("#win").empty();
         
+        whoTurn("You / Player A");
+        
+        player_row = -1;
+        
+        player_took = 0;
+        
+        $("#aiTurn").show();
+        $("#nextTurn").show();
+        
         update();
+    };
+    
+    const whoTurn = (who) =>
+        $("#whoTurn").text(who + " turn");
+    
+    const nextTurn = () =>
+    {
+        if (player_took === 0)
+            return ;
+        
+        $("#aiTurn").hide();
+        
+        if (player === "You" || player === "Player A")
+            player = "Player B";
+        else if (player === "Player B")
+            player = "Player A";
+        
+        whoTurn(player);
+        
+        player_row = -1;
+        
+        player_took = 0;
     };
     
     $("#aiTurn").click(aiTurn);
     
+    $("#nextTurn").click(nextTurn);
+    
     $("#restart").click(restart);
     
     update();
+    
+    whoTurn("You / Player A");
 });

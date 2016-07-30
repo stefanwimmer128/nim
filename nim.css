@@ -14,6 +14,16 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
+body
+{
+    cursor: default;
+}
+
+button
+{
+    cursor: pointer;
+}
+
 #nim p
 {
     border: 1px solid black;
@@ -25,5 +35,6 @@
     margin: 2px;
     border: 1px solid black;
     padding: 5px 7px;
-    background: #00b7ff
+    background: #00b7ff;
+    cursor: pointer;
 }
