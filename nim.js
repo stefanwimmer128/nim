@@ -97,7 +97,12 @@ $(() =>
         if (cards.length < 1)
             return aiTurn();
         
-        const takes = Math.ceil(Math.random() * cards.length);
+        let takes = Math.ceil(Math.random() * cards.length);
+        
+        if (rows.every((r, i) =>
+            i === row || r.every(card => ! card)
+        ))
+            takes = cards.length;
         
         let took = 0;
         
