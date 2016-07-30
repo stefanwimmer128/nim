@@ -153,6 +153,8 @@ $(() =>
         
         whoTurn("You / Player A");
         
+        player = "You";
+        
         player_row = -1;
         
         player_took = 0;
