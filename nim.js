@@ -138,6 +138,8 @@ $(() =>
             $("#win").text(who + " won!");
             
             $("#whoTurn").empty();
+            
+            $("#aiTurn, #nextTurn").hide();
         }
         
         return won;
@@ -155,8 +157,7 @@ $(() =>
         
         player_took = 0;
         
-        $("#aiTurn").show();
-        $("#nextTurn").show();
+        $("#aiTurn, #nextTurn").show();
         
         update();
     };
