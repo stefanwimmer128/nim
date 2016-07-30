@@ -55,6 +55,8 @@ $(() =>
                             rows[ir][ic] = false;
                             
                             update();
+                            
+                            hasWon("You");
                         });
             });
         });
@@ -62,6 +64,9 @@ $(() =>
     
     const aiTurn = () =>
     {
+        if (hasWon())
+            return ;
+        
         const row = Math.floor(Math.random() * rows.length);
         const cards = rows[row].filter(card => card);
         
@@ -85,6 +90,22 @@ $(() =>
         });
         
         update();
+        
+        hasWon("AI");
+    };
+    
+    const hasWon = (who) =>
+    {
+        const won = rows.every(row =>
+            row.every(card =>
+                ! card
+            )
+        );
+        
+        if (won && typeof who !== "undefined")
+            $("#win").text(who + " won!");
+        
+        return won;
     };
     
     $("#aiTurn").click(aiTurn);
