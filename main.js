@@ -50658,11 +50658,11 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"app"}},[_c('h1',[_vm._v(_vm._s(_vm.title))]),_c('game'),_c('total')],1)}
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"app"}},[_c('h1',[_vm._v(_vm._s(_vm.title))]),_c('game'),_c('total'),_c('a',{attrs:{"href":"https://github.com/stefanwimmer128/nim"}},[_c('el-button',{attrs:{"type":"text"}},[_vm._v("View on GitHub")])],1)],1)}
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
 
 /***/ })
 /******/ ])["default"];
-//# sourceMappingURL=main.js.map?47df6283cd501f14a5a9
+//# sourceMappingURL=main.js.map?8f18b267658ea8d9a7fc
