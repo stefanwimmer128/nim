@@ -28,4 +28,6 @@
         h1 {{title}}
         game
         total
+        a(href="https://github.com/stefanwimmer128/nim")
+            el-button(type="text") View on GitHub
 </template>
