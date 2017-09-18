@@ -1,0 +1,4 @@
+[submodule "public"]
+	path = public
+	url = git@github.com:stefanwimmer128/nim.git
+	branch = gh-pages
